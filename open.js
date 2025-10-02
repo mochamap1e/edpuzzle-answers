@@ -51,10 +51,10 @@ function init() {
     alert("To use this, drag this button into your bookmarks bar. Then, run it when you're on an Edpuzzle assignment.");
   }
   else if ((/https{0,1}:\/\/edpuzzle.com\/assignments\/[a-f0-9]{1,30}\/watch/).test(window.real_location.href)) {
-    http_get(base_url+"/popup.html", open_popup);
+    http_get(base_url+"/app/html/popup.html", open_popup);
   } else if ((/https{0,1}:\/\/edpuzzle.com\/lms\/lti\/assignments\/[a-f0-9]{1,30}\/view/).test(window.real_location.href)) {
     const attachmentId = new URLSearchParams(window.location.search).get("attachmentId");
-    http_get(base_url+"/popup.html", open_popup);
+    http_get(base_url+"/app/html/popup.html", open_popup);
   }
   else if (window.canvasReadyState) {
     handle_canvas_url();
