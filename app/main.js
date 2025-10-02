@@ -132,6 +132,8 @@ export async function get_attempt() {
   let request = await fetch(attempt_url);
   let data = await request.json();
 
+  console.info(data);
+
   return data;
 }
 
