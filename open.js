@@ -52,6 +52,10 @@ function init() {
   }
   else if ((/https{0,1}:\/\/edpuzzle.com\/assignments\/[a-f0-9]{1,30}\/watch/).test(window.real_location.href)) {
     http_get(base_url+"/popup.html", open_popup);
+  } else if ((/https{0,1}:\/\/edpuzzle.com\/lms\/lti\/assignments\/[a-f0-9]{1,30}\/view/).test(window.real_location.href)) {
+    const params = new URLSearchParams(window.location.search);
+    const attachmentId = params.get("attachmentId");
+    console.log(attachmentId);
   }
   else if (window.canvasReadyState) {
     handle_canvas_url();
@@ -60,7 +64,6 @@ function init() {
     handle_schoology_url();
   }
   else {
-    console.log(window.schoologyMoreLess);
     alert("Please run this script on an Edpuzzle assignment. For reference, the URL should look like this:\nhttps://edpuzzle.com/assignments/{ASSIGNMENT_ID}/watch");
   }
 }
@@ -126,8 +129,6 @@ function handle_canvas_url() {
 function handle_schoology_url() {
   let assignment_id = window.real_location.href.split("/")[4];
   let url = `/external_tool/${assignment_id}/launch/iframe`;
-
-  console.log(assignment_id);
 
   http_get(url, function() {
     alert(`Please re-run this script in the newly opened tab. If nothing happens after pressing "ok", then allow popups on Schoology and try again.`);
