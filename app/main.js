@@ -117,7 +117,7 @@ export async function construct_headers() {
 }
 
 export async function get_attempt() {
-  let assignment_id = get_assignment_id();
+  let assignment_id = get_id();
   let attempt_url;
   if (assignment_mode == "new") {
     let filtered = assignment.assignmentLearner.submissions.filter((submission) => {
@@ -578,7 +578,6 @@ async function init() {
   observer.observe(document.getRootNode(), {childList: true, subtree: true});
 
   try {
-    console.info(get_assignment());
     assignment = await get_assignment();
     format_popup();
     await get_questions();
