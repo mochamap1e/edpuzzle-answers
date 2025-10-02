@@ -53,9 +53,8 @@ function init() {
   else if ((/https{0,1}:\/\/edpuzzle.com\/assignments\/[a-f0-9]{1,30}\/watch/).test(window.real_location.href)) {
     http_get(base_url+"/popup.html", open_popup);
   } else if ((/https{0,1}:\/\/edpuzzle.com\/lms\/lti\/assignments\/[a-f0-9]{1,30}\/view/).test(window.real_location.href)) {
-    const params = new URLSearchParams(window.location.search);
-    const attachmentId = params.get("attachmentId");
-    console.log(attachmentId);
+    const attachmentId = new URLSearchParams(window.location.search).get("attachmentId")
+    console.info(attachmentId);
   }
   else if (window.canvasReadyState) {
     handle_canvas_url();

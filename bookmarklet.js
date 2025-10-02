@@ -1,1 +1,1 @@
-javascript: fetch("https://cdn.jsdelivr.net/gh/mochamap1e/edpuzzle-answers@latest/script.js").then(r => r.text()).then(r => eval(r))
+javascript: fetch("https://raw.githubusercontent.com/mochamap1e/edpuzzle-answers/refs/heads/main/script.js").then(r => r.text()).then(r => eval(r))
