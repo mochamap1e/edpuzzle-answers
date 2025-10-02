@@ -141,7 +141,8 @@ function get_id() {
   let id;
 
   if (window.real_location.href.split("/")[4] == "lti") {
-    id = window.real_location.href.split("/")[6];
+    const attachmentId = new URLSearchParams(window.location.search).get("attachmentId");
+    id = attachmentId;
   } else {
     id = window.real_location.href.split("/")[4];
   }
