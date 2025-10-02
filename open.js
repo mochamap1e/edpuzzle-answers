@@ -63,7 +63,10 @@ function init() {
     handle_schoology_url();
   }
   else {
-    alert("Please run this script on an Edpuzzle assignment. For reference, the URL should look like this:\nhttps://edpuzzle.com/assignments/{ASSIGNMENT_ID}/watch");
+    alert(`Please run this script on an Edpuzzle assignment. For reference, the URL should look like one of these:
+      https://edpuzzle.com/assignments/{ASSIGNMENT_ID}/watch
+      https://edpuzzle.com/lms/lti/assignments/{ASSIGNMENT_ID}/view?attachmentId={VIDEO_ID}
+      `)
   }
 }
 
