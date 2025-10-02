@@ -117,7 +117,7 @@ export async function construct_headers() {
 }
 
 export async function get_attempt() {
-  let assignment_id = get_id();
+  let assignment_id = get_assignment_id();
   let attempt_url;
   if (assignment_mode == "new") {
     let filtered = assignment.assignmentLearner.submissions.filter((submission) => {
@@ -132,26 +132,11 @@ export async function get_attempt() {
   let request = await fetch(attempt_url);
   let data = await request.json();
 
-  console.info(data);
-
   return data;
 }
 
-function get_id() {
-  let id;
-
-  if (window.real_location.href.split("/")[4] == "lti") {
-    const attachmentId = new URLSearchParams(window.location.search).get("attachmentId");
-    id = attachmentId;
-  } else {
-    id = window.real_location.href.split("/")[4];
-  }
-
-  return id;
-}
-
 async function get_assignment() {
-  let assignment_id = get_id();
+  let assignment_id = get_assignment_id();
 
   if (typeof assignment_id == "undefined") {
     throw new Error("Could not infer the assignment ID. Are you on the correct URL?");
@@ -567,7 +552,7 @@ async function init() {
   window.real_location = JSON.parse(JSON.stringify(opener.real_location));
   attachment_id = new URLSearchParams(window.real_location.search).get("attachmentId");
 
-  console.info(gpl_text);
+  console.log(gpl_text);
   load_console_html();
 
   let textarea_list = document.getElementsByTagName("textarea");
