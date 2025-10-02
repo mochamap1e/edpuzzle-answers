@@ -46,7 +46,7 @@ function init() {
   if (window.__uv) {
     window.real_location = __uv.location;
   }
-
+ 
   if (window.real_location.hostname == "edpuzzle.hs.vc") {
     alert("To use this, drag this button into your bookmarks bar. Then, run it when you're on an Edpuzzle assignment.");
   }
