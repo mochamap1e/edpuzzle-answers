@@ -99,11 +99,11 @@ function write_popup(popup, html) {
     return element;
   }
 
-  http_get(base_url+"/styles/popup.css", function(){
+  http_get(base_url+"/app/css/popup.css", function(){
     create_element("style", this.responseText);
   });
 
-  http_get(base_url+"/main.js", function() {
+  http_get(base_url+"/app/main.js", function() {
     create_element("script", this.responseText);
   });
 }
