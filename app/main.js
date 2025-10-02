@@ -137,8 +137,20 @@ export async function get_attempt() {
   return data;
 }
 
+function get_link() {
+  let link;
+
+  if (window.real_location.href.split("/")[4] == "lti") {
+    link = window.real_location.href.split("/")[6];
+  } else {
+    link = window.real_location.href.split("/")[4];
+  }
+
+  return link;
+}
+
 async function get_assignment() {
-  let assignment_id = window.real_location.href.split("/")[4];
+  let assignment_id = get_link();
 
   if (typeof assignment_id == "undefined") {
     throw new Error("Could not infer the assignment ID. Are you on the correct URL?");
