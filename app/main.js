@@ -145,6 +145,7 @@ async function get_assignment() {
   let assignment_url = `https://edpuzzle.com/api/v3/assignments/${assignment_id}`;
   let response = await fetch(assignment_url);
   if (response.ok) {
+    console.info(response);
     assignment_mode = "legacy";
   }
   else {
@@ -178,7 +179,7 @@ function format_popup() {
 
     media = filtered[0];
     if (media == null) {
-      throw new Error(`Could not find the assignment media.\n\nMake sure the page URL looks like this:\nhttps://edpuzzle.com/assignments/{ASSIGNMENT_ID}/watch?attachmentId={ATTACHMENT_ID}`);
+      throw new Error(`Could not find the assignment media.\n\nMake sure the page URL looks like this:\nhttps://edpuzzle.com/assignments/{ASSIGNMENT_ID}/view?attachmentId={ATTACHMENT_ID}`);
     }
     teacher_assignment = assignment.assignmentLearner;
     thumbnail = media.thumbnailUrl;
