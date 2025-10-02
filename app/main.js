@@ -565,6 +565,7 @@ async function init() {
 
   try {
     assignment = await get_assignment();
+    console.info(get_assignment());
     format_popup();
     await get_questions();
     parse_questions();
