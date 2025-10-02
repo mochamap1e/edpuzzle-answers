@@ -406,7 +406,7 @@ function mutation_observer_callback(mutations_list, observer) {
     }
   }
 }
-
+ 
 function intercept_console() {
   let function_names = ["log", "debug", "info", "warn", "error"];
   for (let key of function_names) {
