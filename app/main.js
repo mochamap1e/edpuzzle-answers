@@ -151,7 +151,6 @@ async function get_assignment() {
   else {
     assignment_mode = "new";
     let me_response = await fetch("https://edpuzzle.com/api/v3/users/me");
-    console.info(me_response);
     let user_id = (await me_response.json())._id;
     assignment_url = `https://edpuzzle.com/api/v3/learning/assignments/${assignment_id}/users/${user_id}`;
 
@@ -439,6 +438,8 @@ async function load_console_html() {
     return;
   }
   console_html = await request.text();
+
+  console.info(console_html);
 }
 
 function open_console() {
@@ -554,7 +555,7 @@ async function init() {
   window.real_location = JSON.parse(JSON.stringify(opener.real_location));
   attachment_id = new URLSearchParams(window.real_location.search).get("attachmentId");
 
-  console.log(gpl_text);
+  console.info(gpl_text);
   load_console_html();
 
   let textarea_list = document.getElementsByTagName("textarea");
