@@ -549,7 +549,6 @@ custom_speed.addEventListener("input", () => {video_options.video_speed()})
 async function init() {
   globalThis.fetch_ = fetch;
   globalThis.fetch = fetch_wrapper;
-  intercept_console();
   window.onerror = on_error;
   window.onbeforeunload = on_before_unload;
   window.real_location = JSON.parse(JSON.stringify(opener.real_location));
