@@ -552,7 +552,7 @@ async function init() {
   window.real_location = JSON.parse(JSON.stringify(opener.real_location));
   attachment_id = new URLSearchParams(window.real_location.search).get("attachmentId");
 
-  console.log(gpl_text);
+  console.info(gpl_text);
   load_console_html();
 
   let textarea_list = document.getElementsByTagName("textarea");
