@@ -3,7 +3,7 @@
 
 //this script mainly just serves to load the rest of the program
 
-var mirrors = ["https://raw.githubusercontent.com/mochamap1e/edpuzzle-answers/refs/heads/main/"]; //https://edpuzzle.hs.vc
+var mirrors = ["https://edpuzzle.hs.vc"]; //https://edpuzzle.hs.vc
 
 async function try_mirror(mirror) {
   let r = await fetch(mirror + "/open.js");
