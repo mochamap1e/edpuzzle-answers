@@ -85,7 +85,7 @@ function open_popup() {
 
   popup.addEventListener("beforeunload", popup_unload);
 }
-
+ 
 function write_popup(popup, html) {
   popup.document.base_url = base_url;
   popup.document.edpuzzle_data = window.__EDPUZZLE_DATA__;
