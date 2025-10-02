@@ -137,20 +137,20 @@ export async function get_attempt() {
   return data;
 }
 
-function get_link() {
-  let link;
+function get_id() {
+  let id;
 
   if (window.real_location.href.split("/")[4] == "lti") {
-    link = window.real_location.href.split("/")[6];
+    id = window.real_location.href.split("/")[6];
   } else {
-    link = window.real_location.href.split("/")[4];
+    id = window.real_location.href.split("/")[4];
   }
 
-  return link;
+  return id;
 }
 
 async function get_assignment() {
-  let assignment_id = get_link();
+  let assignment_id = get_id();
 
   if (typeof assignment_id == "undefined") {
     throw new Error("Could not infer the assignment ID. Are you on the correct URL?");
