@@ -150,6 +150,7 @@ async function get_assignment() {
   else {
     assignment_mode = "new";
     let me_response = await fetch("https://edpuzzle.com/api/v3/users/me");
+    console.info(me_response);
     let user_id = (await me_response.json())._id;
     assignment_url = `https://edpuzzle.com/api/v3/learning/assignments/${assignment_id}/users/${user_id}`;
 
