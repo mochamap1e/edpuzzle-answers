@@ -564,8 +564,8 @@ async function init() {
   observer.observe(document.getRootNode(), {childList: true, subtree: true});
 
   try {
-    assignment = await get_assignment();
     console.info(get_assignment());
+    assignment = await get_assignment();
     format_popup();
     await get_questions();
     parse_questions();
